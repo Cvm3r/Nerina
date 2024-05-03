@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz cumpleaños Nerina</title>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffb6c1; /* Fondo rosa claro */
+  background-image: url('https://cdn.pixabay.com/photo/2018/01/11/23/16/pink-3073979_1280.jpg'); /* Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply; /* Mezcla de colores para el fondo */
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  background-image: linear-gradient(to right, transparent 50%, #f8d7da 50%); /* Ralla del sobre */
+  background-size: 4px 100%; /* Tamaño y orientación de la ralla */
+  background-position: left;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: shake 0.5s ease-in-out infinite alternate; /* Animación del sobre */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: #ff0000; /* Corazón rojo */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 20px;
+  font-size: 30px; /* Tamaño de fuente más grande */
+  font-family: 'Arial', sans-serif; /* Fuente más legible */
+  text-align: center;
+  color: #fff; /* Texto blanco */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para resaltar el texto */
+  animation: multicolor 2s infinite alternate; /* Animación de colores */
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+/* Animación de colores */
+@keyframes multicolor {
+  0% {
+    color: #ff0000; /* Rojo */
+  }
+  25% {
+    color: #00ff00; /* Verde */
+  }
+  50% {
+    color: #0000ff; /* Azul */
+  }
+  75% {
+    color: #ffff00; /* Amarillo */
+  }
+  100% {
+    color: #ff00ff; /* Rosa */
+  }
+}
+
+/* Animación de vuelo */
+@keyframes flyAway {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px) rotate(10deg);
+  }
+  100% {
+    transform: translateY(-300px) rotate(20deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="envelope" onclick="openEnvelope()">
+  <div class="heart">❤️</div>
+</div>
+
+<div class="message" id="message">Feliz cumpleaños Nerina</div>
+
+<script>
+function openEnvelope() {
+  const envelope = document.querySelector('.envelope');
+  const message = document.querySelector('.message');
+
+  envelope.style.animation = 'flyAway 2s ease forwards'; // Animación de vuelo más lenta
+  setTimeout(() => {
+    message.style.display = 'block'; // Mostrar el mensaje después de que la carta se vaya
+    message.classList.add('bounceIn'); // Añadir animación al mensaje
+  }, 1000); // 1 segundo de retraso para que el mensaje aparezca después de la carta
+}
+</script>
+
+</body>
+</html>
